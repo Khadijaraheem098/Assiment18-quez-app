@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-box {
+    background:darkcyan;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color:white;
+    font-size: 20px;
+}
+
+.option-btn {
+    display: block;
+    width: 100%;
+    background: white;
+    border: 2px solid #ddd;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* .option-btn:hover {
+    background: black;
+    
+} */
+
+.option-btn.selected {
+    background:black;
+    border-color:white;
+    color: white;
+    font-weight: bold;
+}
+
+#submit-btn, #retry-btn {
+    width: 100%;
+    padding: 12px;
+    background:black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#submit-btn:disabled {
+    background: black;
+    cursor: not-allowed;
+}
+
+#submit-btn:hover:not(:disabled), #retry-btn:hover {
+    background: black;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#result-screen {
+    text-align: center;
+}
+
+#score-text {
+    font-size: 18px;
+    margin: 15px 0;
+    color: black;
+}
+
