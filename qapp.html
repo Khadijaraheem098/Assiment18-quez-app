@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<boody>
+    <div><h1 style="color:white">Quiz App :</h1></div>
+    <div class="quiz-box">
+    
+        <div id="quiz-screen">
+            <h2 id="question-text">Question Loading...</h2>
+            <div id="options-list">
+        
+            </div>
+            <button id="submit-btn" disabled>Submit Answer</button>
+        </div>
+
+
+        <div id="result-screen" class="hidden">
+            <h2>Quiz Finished! 🎉</h2>
+            <p id="score-text">Your score will appear here.</p>
+            <button id="retry-btn">Play Again</button>
+        </div>
+    </div>
+   
+    <script src="login.js" type="module"></script>
+    <script src="sinap.js" type="module"></script>
+    <script src="app.js " type="module"></script>
+</body>
+</html>

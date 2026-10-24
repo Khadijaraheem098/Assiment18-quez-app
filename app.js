@@ -1,5 +1,30 @@
 // JavaScript Logic
-// 1. Quiz ka data (Sawal aur Jawab)
+
+ 
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-analytics.js";
+  import { getDatabase,set,ref,push } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-database.js";
+
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD4bL2lBuZMegK6WJt99Jko-8EW6ZyDQPo",
+    authDomain: "quiz-app-fc216.firebaseapp.com",
+    projectId: "quiz-app-fc216",
+    storageBucket: "quiz-app-fc216.firebasestorage.app",
+    messagingSenderId: "940033175875",
+    appId: "1:940033175875:web:f00a9dad3069ad02607ff6",
+    measurementId: "G-R8P1SLP2VB"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+
+
+const database = getDatabase();
+
 var questionsData = [
     
      {
@@ -161,7 +186,7 @@ submitBtn.addEventListener("click", () => {
     if (selectedAnswerIndex === null) return;
 
     
-    if (selectedAnswerIndex === questionsData[currentQuestionIndex].correct) {
+    if (selectedAnswerIndex === questionsData[currentQuestionIndex]) {
         score++;
     }
 
@@ -169,12 +194,44 @@ submitBtn.addEventListener("click", () => {
     if (currentQuestionIndex < questionsData.length) {
         loadQuestion();
     } else {
+
         showResult();
+
     }
 });
 
 
 function showResult() {
+     var scoped=ref(database,`result`) ;
+     var newR=push(scoped);
+     var id=newR.key;
+   
+
+     var object={ 
+        k:id,
+        score:score,
+        totalQ:questionsData.length,
+     }
+     set(newR,object)
+     .then(() => { 
+       alert("hi")
+     })
+     .catch((error )=>{ 
+        console.log(error);
+        
+     })
+    //  const start = ref(database,`result${question_elm}`);
+    //  onValue(starCountRef,(snapshot) =>{
+    //     const data = snapshot.val();
+    //     updateStarCount(postElement, data);
+
+    //  });
+     
+    //  function result (){ 
+    //     .then(() =>{ 
+    //     })
+    //  }
+     
     quizScreen.classList.add("hidden");
     resultScreen.classList.remove("hidden");
     scoreText.innerText = `You scored ${score} out of ${questionsData.length}!`;
@@ -184,7 +241,7 @@ function showResult() {
 retryBtn.addEventListener("click", () => {
     currentQuestionIndex = 0;
     score = 0;
-    resultScreen.classList.add("hidden");
+    resultScreen.classList.add("hidden");   
     quizScreen.classList.remove("hidden");
     loadQuestion();
 });

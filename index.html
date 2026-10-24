@@ -3,29 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Quiz App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>sinap pag</title>
 </head>
-<body>
-
-    <div class="quiz-box">
-        
-        <div id="quiz-screen">
-            <h2 id="question-text">Question Loading...</h2>
-            <div id="options-list">
-        
-            </div>
-            <button id="submit-btn" disabled>Submit Answer</button>
-        </div>
-
-
-        <div id="result-screen" class="hidden">
-            <h2>Quiz Finished! 🎉</h2>
-            <p id="score-text">Your score will appear here.</p>
-            <button id="retry-btn">Play Again</button>
-        </div>
+<body style="background-color: black; ">
+    <div style="background-color: black; color: aqua; padding: 30px; text-align: center; display: flex; justify-content:center;  ">
+    <div style="border: 1px solid ;  position: fixed; padding: 15px; margin: 100px ; border-radius: 10px ;   " >
+        <h1>sinap</h1>
+       <div>
+        <label style="gap: 10px;" for="">Name :</label>
+        <input id="Name" type="text">
+    </div>
+    <div>
+        <label  for="">Password :</label>
+        <input id="password" type="text">
+    </div>
+    <div>
+        <label for="">Email :</label>
+        <input id="Email" type="text">
     </div>
 
-    <script src="app.js"></script>
+    <div  style="background-color: black; text-align: center; padding: 15px;">
+        <button style="background-color:black; color:#00FFFF; width: 100px; font-size: large; padding: 10px; " id="sinap">Sinap</button>  
+    </div>
+    
+
+
+</div>
+    </div>
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    <script src="sinap.js" type="module"></script>
+    <script src="login.js" type="module"></script>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
